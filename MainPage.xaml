@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             x:Class="MauiApp7.MainPage">
+
+    <ContentPage.Resources>
+        <Style TargetType="uranium:StatefulContentView" ApplyToDerivedTypes="True" CanCascade="True" BaseResourceKey="UraniumUI.Views.StatefulContentView.Base">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CustomStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="Pink"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        
+                        <VisualState x:Name="Hovered">
+                            <VisualState.Setters>
+                                <Setter Property="Background" Value="Yellow"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    
+    <uranium:StatefulContentView HoverExited="StatefulContentView_HoverExited" Hovered="StatefulContentView_Hovered"  Tapped="StatefulContentView_Tapped">
+        <Label TextColor="MediumSpringGreen" FontSize="40" Text="AAAAAAAAAAAAAA"/>
+    </uranium:StatefulContentView>
+</ContentPage>
