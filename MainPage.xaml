@@ -20,7 +20,7 @@
                                 <Setter Property="Background" Value="Pink"/>
                             </VisualState.Setters>
                         </VisualState>
-                        
+
                         <VisualState x:Name="Hovered">
                             <VisualState.Setters>
                                 <Setter Property="Background" Value="Yellow"/>
@@ -31,8 +31,11 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    
-    <uranium:StatefulContentView HoverExited="StatefulContentView_HoverExited" Hovered="StatefulContentView_Hovered"  Tapped="StatefulContentView_Tapped">
-        <Label TextColor="MediumSpringGreen" FontSize="40" Text="AAAAAAAAAAAAAA"/>
-    </uranium:StatefulContentView>
+
+    <VerticalStackLayout>
+        <uranium:StatefulContentView HoverExited="StatefulContentView_HoverExited" Hovered="StatefulContentView_Hovered"  Tapped="StatefulContentView_Tapped">
+            <Label TextColor="MediumSpringGreen" FontSize="40" Text="AAAAAAAAAAAAAA"/>
+        </uranium:StatefulContentView>
+        <Label Text="Cool barambibol"/>
+    </VerticalStackLayout>
 </ContentPage>
