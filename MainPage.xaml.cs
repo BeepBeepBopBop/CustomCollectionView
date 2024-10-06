@@ -10,6 +10,9 @@
             mainViewModel.Conversations.Add(new ConversationViewModel("Barambibol"));
             mainViewModel.Conversations.Add(new ConversationViewModel("Wakatepe"));
             mainViewModel.Conversations.Add(new ConversationViewModel("Baboune"));
+
+            mainViewModel.SelectedConversation = mainViewModel.Conversations.First();
+
             BindingContext = mainViewModel;
         }
 

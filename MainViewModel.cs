@@ -12,6 +12,9 @@ namespace CustomCollectionView
     {
         [ObservableProperty]
         ObservableCollection<ConversationViewModel> conversations = new ObservableCollection<ConversationViewModel>();
+
+        [ObservableProperty]
+        ConversationViewModel? selectedConversation;
     }
 
     public partial class ConversationViewModel : ObservableObject
