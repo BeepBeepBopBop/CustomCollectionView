@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
              xmlns:local="clr-namespace:CustomCollectionView"
-             x:Class="CustomCollectionView.MainPage">
+             x:Class="CustomCollectionView.MainPage"
+             x:DataType="local:MainViewModel"
+             >
 
     <ContentPage.Resources>
         <Style TargetType="uranium:StatefulContentView" ApplyToDerivedTypes="True" CanCascade="True" BaseResourceKey="UraniumUI.Views.StatefulContentView.Base">
@@ -33,11 +35,22 @@
         </Style>
     </ContentPage.Resources>
 
-    <VerticalStackLayout>
+    <!--<VerticalStackLayout>
         <uranium:StatefulContentView HoverExited="StatefulContentView_HoverExited" Hovered="StatefulContentView_Hovered"  Tapped="StatefulContentView_Tapped">
             <Label TextColor="MediumSpringGreen" FontSize="40" Text="AAAAAAAAAAAAAA"/>
         </uranium:StatefulContentView>
         <Label Text="Cool barambibol"/>
-    </VerticalStackLayout>
+    </VerticalStackLayout>-->
+
+    <local:CustomCollectionView ItemsSource="{Binding Conversations}" >
+        <local:CustomCollectionView.ItemTemplate>
+            <DataTemplate x:DataType="local:ConversationViewModel">
+                <HorizontalStackLayout Spacing="20">
+                    <Label Text="Value:"/>
+                    <Label Text="{Binding Title}"/>
+                </HorizontalStackLayout>
+            </DataTemplate>
+        </local:CustomCollectionView.ItemTemplate>
+    </local:CustomCollectionView>
 
 </ContentPage>

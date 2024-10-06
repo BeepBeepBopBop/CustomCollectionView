@@ -8,15 +8,23 @@ public partial class CustomCollectionView : ContentView
     public DataTemplate ItemTemplate
     {
         get => (DataTemplate)GetValue(ItemTemplateProperty);
-        private set => SetValue(ItemTemplateProperty, value);
+        set => SetValue(ItemTemplateProperty, value);
     }
 
     public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(CustomCollectionView));
     public IEnumerable ItemsSource
     {
         get => (IEnumerable)GetValue(ItemsSourceProperty);
-        private set => SetValue(ItemsSourceProperty, value);
+        set => SetValue(ItemsSourceProperty, value);
     }
+
+    public static readonly BindableProperty CountProperty = BindableProperty.Create(nameof(Count), typeof(int), typeof(CustomCollectionView));
+    public int Count
+    {
+        get => (int)GetValue(CountProperty);
+        set => SetValue(CountProperty, value);
+    }
+
 
     public CustomCollectionView()
     {
