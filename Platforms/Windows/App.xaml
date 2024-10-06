@@ -1,8 +1,8 @@
 ﻿<maui:MauiWinUIApplication
-    x:Class="MauiApp7.WinUI.App"
+    x:Class="CustomCollectionView.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
-    xmlns:local="using:MauiApp7.WinUI">
+    xmlns:local="using:CustomCollectionView.WinUI">
 
 </maui:MauiWinUIApplication>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using UraniumUI;
 
-namespace MauiApp7
+namespace CustomCollectionView
 {
     public static class MauiProgram
     {

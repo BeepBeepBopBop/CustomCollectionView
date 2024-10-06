@@ -1,4 +1,4 @@
-﻿namespace MauiApp7
+﻿namespace CustomCollectionView
 {
     public partial class MainPage : ContentPage
     {

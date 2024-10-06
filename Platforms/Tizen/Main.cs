@@ -2,7 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace MauiApp7
+namespace CustomCollectionView
 {
     internal class Program : MauiApplication
     {

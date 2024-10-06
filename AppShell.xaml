@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="MauiApp7.AppShell"
+    x:Class="CustomCollectionView.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiApp7"
+    xmlns:local="clr-namespace:CustomCollectionView"
     Shell.FlyoutBehavior="Disabled"
-    Title="MauiApp7">
+    Title="CustomCollectionView">
 
     <ShellContent
         Title="Home"

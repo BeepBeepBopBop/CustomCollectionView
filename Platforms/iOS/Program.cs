@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace MauiApp7
+namespace CustomCollectionView
 {
     public class Program
     {
