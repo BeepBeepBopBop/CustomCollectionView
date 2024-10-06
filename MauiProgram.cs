@@ -23,6 +23,7 @@ namespace CustomCollectionView
             builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddSingleton<MainViewModel>();
             return builder.Build();
         }
     }
