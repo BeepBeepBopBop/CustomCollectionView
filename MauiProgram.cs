@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using UraniumUI;
 
 namespace CustomCollectionView
@@ -11,7 +12,7 @@ namespace CustomCollectionView
             builder
                 .UseMauiApp<App>()
                 .UseUraniumUI()
-
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -19,7 +20,7 @@ namespace CustomCollectionView
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

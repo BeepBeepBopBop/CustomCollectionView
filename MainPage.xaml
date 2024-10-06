@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             xmlns:local="clr-namespace:CustomCollectionView"
              x:Class="CustomCollectionView.MainPage">
 
     <ContentPage.Resources>
@@ -38,4 +39,5 @@
         </uranium:StatefulContentView>
         <Label Text="Cool barambibol"/>
     </VerticalStackLayout>
+
 </ContentPage>

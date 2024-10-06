@@ -2,9 +2,13 @@
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainViewModel mainViewModel)
         {
             InitializeComponent();
+
+            mainViewModel.Conversations.Add(new ConversationViewModel("Barambibol"));
+            mainViewModel.Conversations.Add(new ConversationViewModel("Wakatepe"));
+            mainViewModel.Conversations.Add(new ConversationViewModel("Baboune"));
         }
 
         private void StatefulContentView_Tapped(object sender, EventArgs e)
