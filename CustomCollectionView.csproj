@@ -63,4 +63,10 @@
 		<PackageReference Include="UraniumUI" Version="2.10.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="CustomCollectionView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
