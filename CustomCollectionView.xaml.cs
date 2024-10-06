@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace CustomCollectionView;
 
 public partial class CustomCollectionView : ContentView
@@ -9,6 +11,12 @@ public partial class CustomCollectionView : ContentView
         private set => SetValue(ItemTemplateProperty, value);
     }
 
+    public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(CustomCollectionView));
+    public IEnumerable ItemsSource
+    {
+        get => (IEnumerable)GetValue(ItemsSourceProperty);
+        private set => SetValue(ItemsSourceProperty, value);
+    }
 
     public CustomCollectionView()
     {
