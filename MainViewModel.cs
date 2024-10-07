@@ -1,30 +1,21 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomCollectionView
 {
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        ObservableCollection<ConversationViewModel> conversations = new ObservableCollection<ConversationViewModel>();
+        ObservableCollection<ItemViewModel> items = new ObservableCollection<ItemViewModel>();
 
         [ObservableProperty]
-        ConversationViewModel? selectedConversation;
-    }
+        ItemViewModel? selectedItem;
 
-    public partial class ConversationViewModel : ObservableObject
-    {
-        [ObservableProperty]
-        string title;
-
-        public ConversationViewModel(string title)
+        [RelayCommand]
+        public void AddNewItem()
         {
-            Title = title;
+            Items.Add(new ItemViewModel($"Item {Items.Count + 1}"));
         }
     }
 }

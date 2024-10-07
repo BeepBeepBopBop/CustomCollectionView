@@ -7,18 +7,15 @@
             InitializeComponent();
 
             var mainViewModel = new MainViewModel();
-            mainViewModel.Conversations.Add(new ConversationViewModel("Barambibol"));
-            mainViewModel.Conversations.Add(new ConversationViewModel("Wakatepe"));
-            mainViewModel.Conversations.Add(new ConversationViewModel("Baboune"));
 
-            mainViewModel.SelectedConversation = mainViewModel.Conversations.First();
+            for (int i =0; i < 10; i++)
+            {
+                mainViewModel.AddNewItem();
+            }
+            
+            mainViewModel.SelectedItem = mainViewModel.Items.First();
 
             BindingContext = mainViewModel;
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

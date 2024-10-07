@@ -43,11 +43,12 @@
     </VerticalStackLayout>-->
 
     <VerticalStackLayout Spacing="20">
-        <Button Text="Add" Clicked="Button_Clicked"/>
-        <local:CustomCollectionView Grid.Row="1" SelectedItem="{Binding SelectedConversation, Mode=TwoWay}" ItemsSource="{Binding Conversations}" >
+        <Button Margin="20" Text="Add" Command="{Binding AddNewItemCommand}"/>
+
+        <local:CustomCollectionView Grid.Row="1" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding Items}" >
             <local:CustomCollectionView.ItemTemplate>
-                <DataTemplate x:DataType="local:ConversationViewModel">
-                    <HorizontalStackLayout Spacing="20">
+                <DataTemplate x:DataType="local:ItemViewModel">
+                    <Grid Padding="16">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroupList>
                                 <VisualStateGroup x:Name="CustomStates">
@@ -72,13 +73,12 @@
                             </VisualStateGroupList>
                         </VisualStateManager.VisualStateGroups>
 
-                        <Label Text="Value:"/>
                         <Label Text="{Binding Title}"/>
-                    </HorizontalStackLayout>
+                    </Grid>
                 </DataTemplate>
             </local:CustomCollectionView.ItemTemplate>
         </local:CustomCollectionView>
 
-        <Label Text="{Binding SelectedConversation.Title, StringFormat='{} Selected item: {0}'}"/>
+        <Label Text="{Binding SelectedItem.Title, StringFormat='{} Selected item: {0}'}"/>
     </VerticalStackLayout>
 </ContentPage>

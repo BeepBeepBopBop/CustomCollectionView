@@ -5,38 +5,13 @@
              x:Class="CustomCollectionView.CustomCollectionView"
              x:Name="customCollectionView"
              >
-    <ContentView.Resources>
-        <Style TargetType="uranium:StatefulContentView" ApplyToDerivedTypes="True" CanCascade="True" BaseResourceKey="UraniumUI.Views.StatefulContentView.Base">
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup x:Name="CustomStates">
-                        <VisualState x:Name="Normal">
-                            <VisualState.Setters>
-                                <Setter Property="Background" Value="Red"/>
-                            </VisualState.Setters>
-                        </VisualState>
 
-                        <VisualState x:Name="Selected">
-                            <VisualState.Setters>
-                                <Setter Property="Background" Value="Pink"/>
-                            </VisualState.Setters>
-                        </VisualState>
-
-                        <VisualState x:Name="Hovered">
-                            <VisualState.Setters>
-                                <Setter Property="Background" Value="Yellow"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
-        </Style>
-    </ContentView.Resources>
-
-    <VerticalStackLayout 
-        x:Name="rootLayout"
-        ChildAdded="OnRootLayoutChildAdded"
-        Loaded="rootLayout_Loaded"
-        BindableLayout.ItemsSource="{Binding Source={x:Reference customCollectionView}, Path=ItemsSource}"
-        BindableLayout.ItemTemplate="{Binding Source={x:Reference customCollectionView}, Path=ItemTemplate}"/>
+    <ScrollView>
+        <VerticalStackLayout 
+            x:Name="rootLayout"
+            ChildAdded="OnRootLayoutChildAdded"
+            Loaded="rootLayout_Loaded"
+            BindableLayout.ItemsSource="{Binding Source={x:Reference customCollectionView}, Path=ItemsSource}"
+            BindableLayout.ItemTemplate="{Binding Source={x:Reference customCollectionView}, Path=ItemTemplate}"/>
+    </ScrollView>
 </ContentView>
