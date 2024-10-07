@@ -42,7 +42,8 @@
         <Label Text="Cool barambibol"/>
     </VerticalStackLayout>-->
 
-    <VerticalStackLayout Spacing="20">
+
+    <Grid Margin="0, 20" RowDefinitions="auto, *, auto">
         <Button Margin="20" Text="Add" Command="{Binding AddNewItemCommand}"/>
 
         <local:CustomCollectionView Grid.Row="1" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" ItemsSource="{Binding Items}" >
@@ -79,6 +80,6 @@
             </local:CustomCollectionView.ItemTemplate>
         </local:CustomCollectionView>
 
-        <Label Text="{Binding SelectedItem.Title, StringFormat='{} Selected item: {0}'}"/>
-    </VerticalStackLayout>
+        <Label HorizontalOptions="Center" Grid.Row="2" Text="{Binding SelectedItem.Title, StringFormat='{} Selected item: {0}'}"/>
+    </Grid>
 </ContentPage>
