@@ -42,52 +42,8 @@
         <Label Text="Cool barambibol"/>
     </VerticalStackLayout>-->
 
-    <Grid RowDefinitions="*, *" RowSpacing="20">
-        <!--<CollectionView SelectionMode="Single" 
-                        
-                        SelectedItem="{Binding SelectedConversation}" ItemsSource="{Binding Conversations}" >
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="8" Orientation="Vertical"/>
-            </CollectionView.ItemsLayout>
-            
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="local:ConversationViewModel">
-                    
-                    <Border Padding="20">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroupList>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <VisualState.Setters>
-                                            <Setter Property="Background" Value="Red"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-
-                                    <VisualState x:Name="Selected">
-                                        <VisualState.Setters>
-                                            <Setter Property="Background" Value="Pink"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-
-                                    <VisualState x:Name="PointerOver">
-                                        <VisualState.Setters>
-                                            <Setter Property="Background" Value="Yellow"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateGroupList>
-                        </VisualStateManager.VisualStateGroups>
-                        
-                        <HorizontalStackLayout Spacing="20">
-                            <Label Text="Value:"/>
-                            <Label Text="{Binding Title}"/>
-                        </HorizontalStackLayout>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>-->
-
-        <local:CustomCollectionView Grid.Row="1" ItemsSource="{Binding Conversations}" >
+    <VerticalStackLayout>
+        <local:CustomCollectionView Grid.Row="1" SelectedItem="{Binding SelectedConversation, Mode=TwoWay}" ItemsSource="{Binding Conversations}" >
             <local:CustomCollectionView.ItemTemplate>
                 <DataTemplate x:DataType="local:ConversationViewModel">
                     <HorizontalStackLayout Spacing="20">
@@ -121,7 +77,7 @@
                 </DataTemplate>
             </local:CustomCollectionView.ItemTemplate>
         </local:CustomCollectionView>
-    </Grid>
 
-
+        <Label Text="{Binding SelectedConversation.Title}"/>
+    </VerticalStackLayout>
 </ContentPage>

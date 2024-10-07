@@ -37,8 +37,8 @@ public partial class CustomCollectionView : ContentView
 
     public object? SelectedItem
     {
-        get => (object?)GetValue(CountProperty);
-        set => SetValue(CountProperty, value);
+        get => (object?)GetValue(SelectedItemProperty);
+        set => SetValue(SelectedItemProperty, value);
     }
 
     public CustomCollectionView()
@@ -50,6 +50,15 @@ public partial class CustomCollectionView : ContentView
     {
         var customCollectionView = (CustomCollectionView)bindable;
 
+        if (oldValue != null && oldValue is VisualElement visualElement)
+        {
+            VisualStateManager.GoToState(visualElement, "_Normal");
+        }
+
+        if (newValue is VisualElement visualElement2)
+        {
+            VisualStateManager.GoToState(visualElement2, "_Selected");
+        }
     }
 
     private static void OnItemTemplatePropertyChanged(BindableObject bindable, object oldValue, object newValue)
@@ -97,7 +106,9 @@ public partial class CustomCollectionView : ContentView
     {
         if (sender is VisualElement visualElement)
         {
-            VisualStateManager.GoToState(visualElement, "_Normal");
+            bool isSelected = ((VisualElement)sender).BindingContext == SelectedItem;
+
+            VisualStateManager.GoToState(visualElement, isSelected ? "_Selected" : "_Normal");
         }
     }
 
@@ -108,7 +119,6 @@ public partial class CustomCollectionView : ContentView
         if (sender is VisualElement visualElement)
         {
             VisualStateManager.GoToState(visualElement, "_Hovered");
-            SelectedItem = visualElement.BindingContext;
         }
     }
 
