@@ -42,7 +42,8 @@
         <Label Text="Cool barambibol"/>
     </VerticalStackLayout>-->
 
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="20">
+        <Button Text="Add" Clicked="Button_Clicked"/>
         <local:CustomCollectionView Grid.Row="1" SelectedItem="{Binding SelectedConversation, Mode=TwoWay}" ItemsSource="{Binding Conversations}" >
             <local:CustomCollectionView.ItemTemplate>
                 <DataTemplate x:DataType="local:ConversationViewModel">
@@ -78,6 +79,6 @@
             </local:CustomCollectionView.ItemTemplate>
         </local:CustomCollectionView>
 
-        <Label Text="{Binding SelectedConversation.Title}"/>
+        <Label Text="{Binding SelectedConversation.Title, StringFormat='{} Selected item: {0}'}"/>
     </VerticalStackLayout>
 </ContentPage>

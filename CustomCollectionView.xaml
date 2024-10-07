@@ -12,7 +12,7 @@
                     <VisualStateGroup x:Name="CustomStates">
                         <VisualState x:Name="Normal">
                             <VisualState.Setters>
-                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Background" Value="Red"/>
                             </VisualState.Setters>
                         </VisualState>
 

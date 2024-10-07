@@ -84,9 +84,16 @@ public partial class CustomCollectionView : ContentView
         {
             foreach (var child in rootLayout.Children)
             {
-                if (child is VisualElement visualElement && visualElement.BindingContext == SelectedItem)
+                if (child is VisualElement visualElement)
                 {
-                    SetSelectedElement(visualElement);
+                    if (visualElement.BindingContext == SelectedItem)
+                    {
+                        SetSelectedElement(visualElement);
+                    }
+                    else
+                    {
+                        VisualStateManager.GoToState(visualElement, "_Normal");
+                    }
                 }
             }
         }
