@@ -21,15 +21,7 @@ public partial class CustomCollectionView : ContentView
         set => SetValue(ItemsSourceProperty, value);
     }
 
-    public static readonly BindableProperty CountProperty = BindableProperty.Create(nameof(Count), typeof(int), typeof(CustomCollectionView));
-    public int Count
-    {
-        get => (int)GetValue(CountProperty);
-        set => SetValue(CountProperty, value);
-    }
-
     public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(object), typeof(CustomCollectionView), propertyChanged: OnSelectedItemPropertyChanged);
-
     public object? SelectedItem
     {
         get => (object?)GetValue(SelectedItemProperty);
@@ -39,23 +31,6 @@ public partial class CustomCollectionView : ContentView
     public CustomCollectionView()
     {
         InitializeComponent();
-    }
-
-    private static void OnSelectedItemPropertyChanged(BindableObject bindable, object? oldValue, object newValue)
-    {
-        var customCollectionView = (CustomCollectionView)bindable;
-
-        if (oldValue != null && oldValue is VisualElement visualElement)
-        {
-            VisualStateManager.GoToState(visualElement, "_Normal");
-        }
-
-        if (newValue is VisualElement visualElement2)
-        {
-            VisualStateManager.GoToState(visualElement2, "_Selected");
-        }
-
-        var child = customCollectionView.rootLayout.GetVisualTreeDescendants();
     }
 
     private void OnRootLayoutChildAdded(object sender, ElementEventArgs e)
@@ -78,7 +53,7 @@ public partial class CustomCollectionView : ContentView
         }
     }
 
-    private void rootLayout_Loaded(object sender, EventArgs e)
+    private void OnRootLayoutLoaded(object sender, EventArgs e)
     {
         if (SelectedItem != null)
         {
@@ -137,5 +112,22 @@ public partial class CustomCollectionView : ContentView
         {
             SetSelectedElement(visualElement);
         }
+    }
+
+    private static void OnSelectedItemPropertyChanged(BindableObject bindable, object? oldValue, object newValue)
+    {
+        var customCollectionView = (CustomCollectionView)bindable;
+
+        if (oldValue != null && oldValue is VisualElement visualElement)
+        {
+            VisualStateManager.GoToState(visualElement, "_Normal");
+        }
+
+        if (newValue is VisualElement visualElement2)
+        {
+            VisualStateManager.GoToState(visualElement2, "_Selected");
+        }
+
+        var child = customCollectionView.rootLayout.GetVisualTreeDescendants();
     }
 }

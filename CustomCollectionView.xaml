@@ -10,7 +10,7 @@
         <VerticalStackLayout 
             x:Name="rootLayout"
             ChildAdded="OnRootLayoutChildAdded"
-            Loaded="rootLayout_Loaded"
+            Loaded="OnRootLayoutLoaded"
             BindableLayout.ItemsSource="{Binding Source={x:Reference customCollectionView}, Path=ItemsSource}"
             BindableLayout.ItemTemplate="{Binding Source={x:Reference customCollectionView}, Path=ItemTemplate}"/>
     </ScrollView>
