@@ -7,42 +7,6 @@
              x:DataType="local:MainViewModel"
              >
 
-    <ContentPage.Resources>
-        <Style TargetType="uranium:StatefulContentView" ApplyToDerivedTypes="True" CanCascade="True" BaseResourceKey="UraniumUI.Views.StatefulContentView.Base">
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup x:Name="CustomStates">
-                        <VisualState x:Name="Normal">
-                            <VisualState.Setters>
-                                <Setter Property="Background" Value="Transparent"/>
-                            </VisualState.Setters>
-                        </VisualState>
-
-                        <VisualState x:Name="Selected">
-                            <VisualState.Setters>
-                                <Setter Property="Background" Value="Pink"/>
-                            </VisualState.Setters>
-                        </VisualState>
-
-                        <VisualState x:Name="PointerOver">
-                            <VisualState.Setters>
-                                <Setter Property="Background" Value="Yellow"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
-        </Style>
-    </ContentPage.Resources>
-
-    <!--<VerticalStackLayout>
-        <uranium:StatefulContentView HoverExited="StatefulContentView_HoverExited" Hovered="StatefulContentView_Hovered"  Tapped="StatefulContentView_Tapped">
-            <Label TextColor="MediumSpringGreen" FontSize="40" Text="AAAAAAAAAAAAAA"/>
-        </uranium:StatefulContentView>
-        <Label Text="Cool barambibol"/>
-    </VerticalStackLayout>-->
-
-
     <Grid Margin="0, 20" RowDefinitions="auto, *, auto">
         <Button Margin="20" Text="Add" Command="{Binding AddNewItemCommand}"/>
 
@@ -52,10 +16,10 @@
                     <Grid Padding="16">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroupList>
-                                <VisualStateGroup x:Name="CustomStates">
+                                <VisualStateGroup x:Name="CustomCollectionViewStates">
                                     <VisualState x:Name="_Normal">
                                         <VisualState.Setters>
-                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="Background" Value="Red"/>
                                         </VisualState.Setters>
                                     </VisualState>
 
