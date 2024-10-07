@@ -13,4 +13,4 @@ You can see in the MainPage.xaml file how those are used and you can do the same
 
 ** Disclaimer **
 
-This is just a very quick and basic implementation, and intentionnaly so. It is simply intended to be an entry-point for anybody that needs a functional basic CollectionView control on Windows (or other platforms but I personally needed Windows in priority). You will probably have to modify the code to make it work for your use case, for example if you want multiple selection, or arranging elements horizontally...
+This is just a very quick and basic implementation, and intentionnaly so. It is simply intended to be an entry-point for anybody that needs a functional basic CollectionView control on Windows (or other platforms but I personally needed Windows in priority). You will probably have to modify the code to make it work for you, for example if you want multiple selection, or arranging elements horizontally, but it at least provides something to start moving forward.
