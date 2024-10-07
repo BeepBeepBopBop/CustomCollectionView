@@ -19,7 +19,7 @@
                                 <VisualStateGroup x:Name="CustomCollectionViewStates">
                                     <VisualState x:Name="_Normal">
                                         <VisualState.Setters>
-                                            <Setter Property="Background" Value="Red"/>
+                                            <Setter Property="Background" Value="Transparent"/>
                                         </VisualState.Setters>
                                     </VisualState>
 
