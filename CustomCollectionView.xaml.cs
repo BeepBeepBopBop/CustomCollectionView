@@ -1,5 +1,4 @@
 using System.Collections;
-using UraniumUI.Views;
 
 namespace CustomCollectionView;
 
@@ -27,6 +26,15 @@ public partial class CustomCollectionView : ContentView
         get => (object?)GetValue(SelectedItemProperty);
         set => SetValue(SelectedItemProperty, value);
     }
+
+    public static readonly BindableProperty SpacingProperty = BindableProperty.Create(nameof(Spacing), typeof(double), typeof(CustomCollectionView));
+    public double Spacing
+    {
+        get => (double)GetValue(SpacingProperty);
+        set => SetValue(SpacingProperty, value);
+    }
+
+    public event EventHandler<EventArgs>? SelectionChanged;
 
     public CustomCollectionView()
     {
@@ -98,11 +106,14 @@ public partial class CustomCollectionView : ContentView
 
     private void OnPointerGestureRecognizePointerEntered(object? sender, PointerEventArgs e)
     {
-        bool isSelected = ((VisualElement)sender).BindingContext == SelectedItem;
-
         if (sender is VisualElement visualElement)
         {
-            VisualStateManager.GoToState(visualElement, "_Hovered");
+            bool isSelected = ((VisualElement)sender).BindingContext == SelectedItem;
+
+            if (!isSelected)
+            {
+                VisualStateManager.GoToState(visualElement, "_Hovered");
+            }
         }
     }
 
@@ -114,20 +125,27 @@ public partial class CustomCollectionView : ContentView
         }
     }
 
-    private static void OnSelectedItemPropertyChanged(BindableObject bindable, object? oldValue, object newValue)
+    private static void OnSelectedItemPropertyChanged(BindableObject bindable, object? oldValue, object? newValue)
     {
         var customCollectionView = (CustomCollectionView)bindable;
 
-        if (oldValue != null && oldValue is VisualElement visualElement)
+        if (customCollectionView._latestSelectedVisualElement != null)
         {
-            VisualStateManager.GoToState(visualElement, "_Normal");
+            VisualStateManager.GoToState(customCollectionView._latestSelectedVisualElement, "_Normal");
         }
 
-        if (newValue is VisualElement visualElement2)
+        if (newValue != null)
         {
-            VisualStateManager.GoToState(visualElement2, "_Selected");
+            foreach (var child in customCollectionView.rootLayout.Children)
+            {
+                if (child is VisualElement childVisualElement && childVisualElement.BindingContext == newValue)
+                {
+                    customCollectionView.SetSelectedElement(childVisualElement);
+                    break;
+                }
+            }
         }
 
-        var child = customCollectionView.rootLayout.GetVisualTreeDescendants();
+        customCollectionView.SelectionChanged?.Invoke(bindable, EventArgs.Empty);
     }
 }
